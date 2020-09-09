@@ -85,10 +85,10 @@ router.post("/:id/comments", (req, res) => {
     //     .catch((error) => {
     //         res.status(500).json(error);
     //     })
-    // const body = { ...req.body, id: req.params.id }
+    const body = { ...req.body, post_id: req.params.id }
     
 
-    db.insertComment(req.body)
+    db.insertComment(body)
         .then((comment) => {
             console.log(comment)
             res.status(201).json(comment)
